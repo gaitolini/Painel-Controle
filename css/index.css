@@ -1,27 +1,44 @@
-.button-success,
-.button-error,
-.button-warning,
-.button-secondary {
-    color        : white;
-    border-radius: 4px;
-    text-shadow  : 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.button-success {
-    background: rgb(28, 184, 65);
-    /* this is a green */
-}
-
-.button-error {
-    background: rgb(202, 60, 60);
-    /* this is a maroon */
-}
-
-.button-warning {
-    background: rgb(223, 117, 20);
-    /* this is an orange */
-}
 
 .salas {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* border-style: solid;
+    border-color: purple; */
+
+}
+
+
+.container-switch .switch-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* border-style: solid; */
+    /* border-color: blue; */
+    
+}
+
+.switch-box .switch {
+    /* border-style: solid; */
+    /* border-color: olivedrab; */
+}
+
+
+.switch-box .rotulo {
+    /* border-style: solid; */
+    /* border-color: red; */
+
+    margin: auto;
+    width: 100px;
+    text-align: center;
+
+}
+
+.gauge-master {    
+    margin: auto;
+    left: 0;
+    width: 100%;
+
+    /* border-style: solid; */
+    /* border-color: orange; */
 }

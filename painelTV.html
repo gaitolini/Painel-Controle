@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <link
+            href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+            rel="stylesheet">
+        <style>
+body { background-color: #cff; } /
+div {
+  background-color: lightblue;
+}
+</style>
+        <title>Documento sem título</title>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"
+            type="text/javascript"></script>
+        <script>
+//Cliente MQQT
+
+var mqtt;
+var reconnectTimeout = 2000;
+var host = "192.168.0.45";
+var port = 8883;
+function onConnect(){
+console.log("Conectado");
+mqtt.subscribe(".Televisao_01");
+mqtt.subscribe(".Televisao_02");
+mqtt.subscribe(".Televisao_03");
+mqtt.subscribe(".Televisao_04");
+mqtt.subscribe(".Televisao_05");
+mqtt.subscribe(".Televisao_06");
+mqtt.subscribe(".Televisao_07");
+mqtt.subscribe(".Televisao_08");
+}
+
+function onError(message) {
+console.log("Falha");
+setTimeout(MQTTConnect, reconnectTimeout);
+}
+function onMessageArrived(msg) {
+console.log(topic3.payloadString);
+	if(msg.destinationName == ".Televisao_01" && topic3.payloadString != msg.payloadString){	
+	
+		var t = document.getElementById("Televisao_01");
+		$( "#Televisao_01" ).prop( "disabled", false );
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_01').bootstrapToggle('on');
+		
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_01').bootstrapToggle('off');		
+		}	
+		$( "#Televisao_01" ).prop( "disabled", true );		
+	}	
+	if(msg.destinationName == ".Televisao_02" && topic3.payloadString != msg.payloadString){		
+		$( "#Televisao_02" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_02");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_02').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_02').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_02" ).prop( "disabled", true );
+	}	
+	if(msg.destinationName == ".Televisao_03" && topic3.payloadString != msg.payloadString){		
+		$( "#Televisao_03" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_03");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_03').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_03').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_03" ).prop( "disabled", true );
+	}		
+	if(msg.destinationName == ".Televisao_04" && topic3.payloadString != msg.payloadString){		
+		$( "#Televisao_04" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_04");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_04').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_04').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_04" ).prop( "disabled", true );
+	}	
+	if(msg.destinationName == ".Televisao_05" && topic3.payloadString != msg.payloadString){	
+		$( "#Televisao_05" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_05");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_05').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_05').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_05" ).prop( "disabled", true );
+	}	
+	if(msg.destinationName == ".Televisao_06" && topic3.payloadString != msg.payloadString){	
+		$( "#Televisao_06" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_06");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_06').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_06').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_06" ).prop( "disabled", true );
+	}	
+	if(msg.destinationName == ".Televisao_07" && topic3.payloadString != msg.payloadString){	
+		$( "#Televisao_07" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_07");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_07').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_07').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_07" ).prop( "disabled", true );
+	}	
+	if(msg.destinationName == ".Televisao_08" && topic3.payloadString != msg.payloadString){	
+		$( "#Televisao_08" ).prop( "disabled", false );
+		var t = document.getElementById("Televisao_08");
+		if (msg.payloadString == ".true") {	
+		$('#Televisao_08').bootstrapToggle('on');
+		}
+		if (msg.payloadString == ".false") {	
+		$('#Televisao_08').bootstrapToggle('off');		
+		}		
+		$( "#Televisao_08" ).prop( "disabled", true );
+	}	
+	
+
+	
+	var t = new Date(msg.payloadString);
+}
+
+var undeliveredMessages = [];
+
+function publish(topic, message, onMessageDeliveredCallback) {
+    message = new Paho.MQTT.Message(message);
+    message.destinationName = topic;
+    message.qos = 2;
+    undeliveredMessages.push({
+        message: message,
+        onMessageDeliveredCallback: onMessageDeliveredCallback
+    });
+    mqtt.send(message);
+	topic3 = message;
+	
+	
+}
+
+function MQTTConnect() {
+	console.log("Conectando");
+	mqtt = new Paho.MQTT.Client(host, port, "Teste HTML");
+	var options = { 
+		timeout: 10,
+		keepAliveInterval: 10,
+		onSuccess: onConnect,
+		onFailure: onError
+		};
+	mqtt.onMessageArrived = onMessageArrived;
+	mqtt.onConectionLost = onError;
+	mqtt.connect(options);
+	
+}
+
+function Enable(){
+
+if($("#Automacao").prop('checked') == false){
+ $( "#Televisao_01" ).prop( "disabled", false );
+ $( "#Televisao_02" ).prop( "disabled", false );
+ $( "#Televisao_03" ).prop( "disabled", false );
+ $( "#Televisao_04" ).prop( "disabled", false );
+ $( "#Televisao_05" ).prop( "disabled", false );
+ $( "#Televisao_06" ).prop( "disabled", false );
+ $( "#Televisao_07" ).prop( "disabled", false );
+ $( "#Televisao_08" ).prop( "disabled", false ); 
+ publish('.Automacao', ".false", null);
+ }else{
+$( "#Televisao_01" ).prop( "disabled", true );
+$( "#Televisao_02" ).prop( "disabled", true );
+$( "#Televisao_03" ).prop( "disabled", true );
+$( "#Televisao_04" ).prop( "disabled", true );
+$( "#Televisao_05" ).prop( "disabled", true );
+$( "#Televisao_06" ).prop( "disabled", true );
+$( "#Televisao_07" ).prop( "disabled", true );
+$( "#Televisao_08" ).prop( "disabled", true );
+publish('.Automacao', ".true", null);
+
+
+}
+
+
+}
+
+/*
+$(function() {
+    $('#Automacao').change(function() {	
+	
+		var valor = "." + $(this).prop('checked');
+		publish('Automacao', valor, null);
+    })
+  })
+
+  $(function() {
+    $('#Ar-Condicionados').change(function() {
+	
+		var valor = "." + $(this).prop('checked');
+		publish('Ar-Condicionado', valor, null);
+    })
+  })
+  */
+
+</script>
+    </head>
+
+    <body onload="MQTTConnect()">
+        <center>
+            <div id='divv'>
+                <div class="form-check pl-0">
+                    <label for="Automacao" class="form-check-label">Automação
+                    </label>
+                    <input id="Automacao" type="checkbox" data-toggle="toggle"
+                        onchange="Enable();" data-on="Ativado"
+                        data-off="Desativado" checked>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_01" class="form-check-label">Televisão
+                        01 </label>
+                    <input id="Televisao_01" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_01',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_02" class="form-check-label">Televisão
+                        02 </label>
+                    <input id="Televisao_02" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_02',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <br>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_03" class="form-check-label">Televisão
+                        03 </label>
+                    <input id="Televisao_03" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_03',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_04" class="form-check-label">Televisão
+                        04 </label>
+                    <input id="Televisao_04" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_04',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <br>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_05" class="form-check-label">Televisão
+                        05 </label>
+                    <input id="Televisao_05" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_05',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_06" class="form-check-label">Televisão
+                        06 </label>
+                    <input id="Televisao_06" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_06',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <br>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_07" class="form-check-label">Televisão
+                        07 </label>
+                    <input id="Televisao_07" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_07',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="Televisao_08" class="form-check-label">Televisão
+                        08 </label>
+                    <input id="Televisao_08" type="checkbox"
+                        data-toggle="toggle" onchange="publish('.Televisao_08',
+                        '.' + $(this).prop('checked'), null);" data-on="Ativado"
+                        data-off="Desativado" disabled>
+                </div>
+
+
+
+            </div>
+        </center>
+    </body>
+
+</html>
